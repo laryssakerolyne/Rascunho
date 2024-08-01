@@ -1,0 +1,57 @@
+<title>Palavras que Aparecem e Somem</title>
+
+    <style>
+        .palavra {
+            display: none; /* Inicialmente, esconde todas as palavras */
+            font-size: 24px;
+            font-weight: bold;
+            color: rgb(0, 0, 11);
+        }
+    </style>
+    </head>
+    <body>
+    
+    <div id="container">
+        <span class="palavra">Rato!</span>
+        <span class="palavra">Macaco</span>
+        <span class="palavra">Parede</span>
+        <span class="palavra">Lapis</span>
+        <span class="palavra">Caderno</span>
+        <span class="palavra">Escola</span>
+        <span class="palavra">Faca</span>
+        <span class="palavra">Sacola</span>
+        
+    </div>
+    
+    <script>
+    // JavaScript para controlar o aparecimento e sumiço das palavras
+    document.addEventListener('DOMContentLoaded', function() {
+        var palavras = document.getElementsByClassName('palavra');
+        var index = 0;
+    
+        function mostrarProximaPalavra() {
+            // Esconde a palavra atual
+            if (index > 0) {
+                palavras[index - 1].style.display = 'none';
+            }
+    
+            // Mostra a próxima palavra e atualiza o índice
+            if (index < palavras.length) {
+                palavras[index].style.display = 'inline';
+                index++;
+            } else {
+                index = 0; // Reinicia o ciclo
+            }
+    
+            // Chama a função novamente após um intervalo de tempo
+            setTimeout(mostrarProximaPalavra, 1000); // 1000 milissegundos = 1 segundo
+        }
+    
+        // Inicia o ciclo de exibição das palavras
+        mostrarProximaPalavra();
+    });
+    </script>
+    
+
+
+    
